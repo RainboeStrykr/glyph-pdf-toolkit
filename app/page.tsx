@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { Highlight } from "@/components/ui/hero-highlight";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 
 const featuredTools = [
   {
@@ -37,14 +39,9 @@ export default function LandingPage() {
   return (
     <div className="[background:radial-gradient(125%_100%_at_50%_0%,#FFF_6.32%,#E0F0FF_29.28%,#E7EFFD_68.68%,#FFFFFF_100%)] ">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 sm:pt-48 sm:pb-32 overflow-hidden">
-        {/* Simplified, cleaner gradient background */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
-          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-50 rounded-full blur-[120px] opacity-60"></div>
-          <div className="absolute bottom-[10%] right-[-5%] w-[30%] h-[30%] bg-indigo-50 rounded-full blur-[100px] opacity-60"></div>
-        </div>
-
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative overflow-hidden">
+        <AuroraBackground className="h-auto min-h-[70vh] justify-start pt-32 pb-20 sm:pt-48 sm:pb-32 bg-transparent dark:bg-transparent">
+        <div className="container mx-auto px-4 text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 mb-8">
             <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
             <span className="text-xs font-bold text-blue-700 uppercase tracking-[0.2em]">
@@ -53,9 +50,8 @@ export default function LandingPage() {
           </div>
 
           <h1 className="text-5xl sm:text-7xl font-black text-slate-900 tracking-tight mb-8 leading-[1.1]">
-          Unlock the
-            <span className="text-blue-600"> full potential </span><br />
-          of your PDFs
+          Master your PDFs.<br />
+            <Highlight className="text-black-500">Effortlessly.</Highlight>
           </h1>
 
           <p className="max-w-2xl mx-auto text-lg sm:text-xl text-slate-600 leading-relaxed mb-12">
@@ -100,6 +96,7 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
+        </AuroraBackground>
       </section>
 
       {/* Featured Tools Grid
