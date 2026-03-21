@@ -37,24 +37,24 @@ const featuredTools = [
 
 export default function LandingPage() {
   return (
-    <div className="[background:radial-gradient(125%_100%_at_50%_0%,#FFF_6.32%,#E0F0FF_29.28%,#E7EFFD_68.68%,#FFFFFF_100%)] ">
+    <div className="[background:radial-gradient(125%_100%_at_50%_0%,#FFF_6.32%,#E0F0FF_29.28%,#E7EFFD_68.68%,#FFFFFF_100%)] dark:bg-slate-950 dark:bg-none">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <AuroraBackground className="h-auto min-h-[70vh] justify-start pt-32 pb-20 sm:pt-48 sm:pb-32 bg-transparent dark:bg-transparent">
         <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 mb-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-slate-900 border border-blue-100 dark:border-slate-700 mb-8">
             <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
-            <span className="text-xs font-bold text-blue-700 uppercase tracking-[0.2em]">
+            <span className="text-xs font-bold text-blue-700 dark:text-blue-300 uppercase tracking-[0.2em]">
               100% Private & Local
             </span>
           </div>
 
-          <h1 className="text-5xl sm:text-7xl font-black text-slate-900 tracking-tight mb-8 leading-[1.1]">
+          <h1 className="text-5xl sm:text-7xl font-black text-slate-900 dark:text-slate-100 tracking-tight mb-8 leading-[1.1]">
           Master your PDFs.<br />
             <Highlight className="text-black-500">Effortlessly.</Highlight>
           </h1>
 
-          <p className="max-w-2xl mx-auto text-lg sm:text-xl text-slate-600 leading-relaxed mb-12">
+          <p className="max-w-2xl mx-auto text-lg sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed mb-12">
           Your ultimate browser-based PDF toolkit is here to simplify merging, splitting, compressing, and so much more. Manage your documents effortlessly and privately.
           </p>
 
@@ -67,29 +67,29 @@ export default function LandingPage() {
             </Link>
             <Link
               href="https://github.com/RainboeStrykr/glyph-pdf-toolkit"
-              className="w-full sm:w-auto px-8 py-4 bg-white text-slate-900 font-bold rounded-2xl border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all active:scale-95 text-lg"
+              className="w-full sm:w-auto px-8 py-4 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-bold rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all active:scale-95 text-lg"
             >
               Completely open source
             </Link>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 text-slate-400">
+          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 text-slate-400 dark:text-slate-500">
             <div className="flex flex-col items-center gap-1">
-              <span className="text-2xl font-bold text-slate-900">100%</span>
+              <span className="text-2xl font-bold text-slate-900 dark:text-slate-100">100%</span>
               <span className="text-[10px] uppercase tracking-[0.2em] font-bold">
                 Client Side
               </span>
             </div>
-            <div className="hidden sm:block w-px h-8 bg-slate-200"></div>
+            <div className="hidden sm:block w-px h-8 bg-slate-200 dark:bg-slate-700"></div>
             <div className="flex flex-col items-center gap-1">
-              <span className="text-2xl font-bold text-slate-900">Fast</span>
+              <span className="text-2xl font-bold text-slate-900 dark:text-slate-100">Fast</span>
               <span className="text-[10px] uppercase tracking-[0.2em] font-bold">
                 Processing
               </span>
             </div>
-            <div className="hidden sm:block w-px h-8 bg-slate-200"></div>
+            <div className="hidden sm:block w-px h-8 bg-slate-200 dark:bg-slate-700"></div>
             <div className="flex flex-col items-center gap-1">
-              <span className="text-2xl font-bold text-slate-900">Secure</span>
+              <span className="text-2xl font-bold text-slate-900 dark:text-slate-100">Secure</span>
               <span className="text-[10px] uppercase tracking-[0.2em] font-bold">
                 By Design
               </span>
@@ -190,17 +190,17 @@ export default function LandingPage() {
       */}
 
       {/* Trust Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white dark:bg-slate-900">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-16">
             <div className="flex-1 text-left">
-              <h2 className="text-4xl font-black text-slate-900 mb-6 leading-tight">
+              <h2 className="text-4xl font-black text-slate-900 dark:text-slate-100 mb-6 leading-tight">
                 Your privacy is our <br />
                 <span className="text-blue-600 underline decoration-blue-100 underline-offset-8">
                   top priority.
                 </span>
               </h2>
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+              <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
                 Most PDF editors upload your files to their servers. We
                 don&apos;t. All processing happens locally in your web browser.
               </p>
@@ -213,7 +213,7 @@ export default function LandingPage() {
                 ].map((item) => (
                   <li
                     key={item}
-                    className="flex items-center gap-3 font-bold text-slate-700"
+                    className="flex items-center gap-3 font-bold text-slate-700 dark:text-slate-200"
                   >
                     <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center shrink-0">
                       <svg
@@ -236,7 +236,7 @@ export default function LandingPage() {
             <div className="flex-1 w-full max-w-md">
               <div className="relative">
                 <div className="absolute inset-0 bg-blue-600 rounded-[3rem] rotate-3 opacity-5"></div>
-                <div className="relative bg-white rounded-[3rem] shadow-2xl p-12 border border-slate-100 text-center">
+                <div className="relative bg-white dark:bg-slate-900 rounded-[3rem] shadow-2xl p-12 border border-slate-100 dark:border-slate-700 text-center">
                   <div className="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mx-auto mb-8">
                     <svg
                       className="w-10 h-10"
@@ -252,10 +252,10 @@ export default function LandingPage() {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-4">
                     Zero Upload Policy
                   </h3>
-                  <p className="text-slate-500 font-medium leading-relaxed">
+                  <p className="text-slate-500 dark:text-slate-300 font-medium leading-relaxed">
                     Your data remains <strong>completely yours</strong>.
                     Security by design, privacy by implementation.
                   </p>
@@ -267,9 +267,9 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-24 bg-slate-50 dark:bg-slate-950">
         <div className="container mx-auto px-4 max-w-5xl text-center">
-          <div className="bg-slate-900 rounded-[3rem] p-12 text-white relative overflow-hidden shadow-2xl shadow-slate-200">
+          <div className="bg-slate-900 dark:bg-slate-900 rounded-[3rem] p-12 text-white relative overflow-hidden shadow-2xl shadow-slate-200 dark:shadow-slate-950/70 border border-transparent dark:border-slate-800">
             <h2 className="text-4xl font-bold mb-6 relative">
               Ready to manage your PDFs?
             </h2>

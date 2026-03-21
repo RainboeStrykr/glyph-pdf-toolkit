@@ -22,7 +22,9 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled || mobileMenuOpen ? "bg-white/95 backdrop-blur-md border-b border-slate-200 py-3" : "bg-transparent py-5"
+      scrolled || mobileMenuOpen
+        ? "bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 py-3"
+        : "bg-transparent py-5"
     }`}>
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
@@ -32,7 +34,7 @@ export default function Navbar() {
             className="w-10 h-10 object-contain transition-transform group-hover:rotate-12"
             priority
           />
-          <span className="text-xl font-bold text-slate-900">
+          <span className="text-xl font-bold text-slate-900 dark:text-slate-100">
             Glyph
           </span>
         </Link>
@@ -47,7 +49,7 @@ export default function Navbar() {
               href="https://github.com/RainboeStrykr/glyph-pdf-toolkit" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="p-2.5 bg-slate-900 text-white rounded-full hover:bg-slate-800 transition-all active:scale-95 shadow-lg shadow-slate-200 flex items-center justify-center"
+              className="p-2.5 bg-slate-900 text-white rounded-full hover:bg-slate-800 transition-all active:scale-95 shadow-lg shadow-slate-200 dark:shadow-slate-900/50 flex items-center justify-center"
               aria-label="GitHub Repository"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -61,7 +63,7 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button 
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-slate-600 hover:text-slate-900 transition-colors"
+          className="md:hidden p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
           aria-label="Toggle menu"
         >
           {mobileMenuOpen ? (
@@ -78,9 +80,9 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-slate-100">
+        <div className="md:hidden bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-t border-slate-100 dark:border-slate-800">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
-            <div className="flex flex-col gap-3 pt-3 border-t border-slate-100">
+            <div className="flex flex-col gap-3 pt-3 border-t border-slate-100 dark:border-slate-800">
               <Link 
                 href="/tools" 
                 onClick={() => setMobileMenuOpen(false)}
@@ -92,7 +94,7 @@ export default function Navbar() {
                 href="https://github.com/RainboeStrykr/glyph-pdf-toolkit" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="px-5 py-3 bg-slate-900 text-white text-sm font-bold rounded-full hover:bg-slate-800 transition-all flex items-center justify-center gap-2 shadow-lg shadow-slate-200"
+                className="px-5 py-3 bg-slate-900 text-white text-sm font-bold rounded-full hover:bg-slate-800 transition-all flex items-center justify-center gap-2 shadow-lg shadow-slate-200 dark:shadow-slate-900/50"
                 aria-label="GitHub Repository"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
