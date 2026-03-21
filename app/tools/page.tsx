@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Merge, Split, FileText, RotateCw, Image, ImageIcon, Layers, Type, Lock, Unlock, Code } from "lucide-react";
 
 const tools = [
   {
@@ -6,77 +7,88 @@ const tools = [
     description: "Combine multiple PDF files into one",
     href: "/tools/merge",
     gradient: "from-blue-500 to-cyan-500",
-    category: "Organize"
+    category: "Organize",
+    icon: Merge
   },
   {
     name: "Split PDF",
     description: "Extract pages or split into multiple files",
     href: "/tools/split",
     gradient: "from-purple-500 to-pink-500",
-    category: "Organize"
+    category: "Organize",
+    icon: Split
   },
   {
     name: "Compress PDF",
     description: "Reduce PDF file size",
     href: "/tools/compress",
     gradient: "from-orange-500 to-red-500",
-    category: "Optimize"
+    category: "Optimize",
+    icon: FileText
   },
   {
     name: "Rotate PDF",
     description: "Rotate PDF pages",
     href: "/tools/rotate",
     gradient: "from-green-500 to-emerald-500",
-    category: "Edit"
+    category: "Edit",
+    icon: RotateCw
   },
   {
     name: "PDF to Images",
     description: "Convert PDF pages to JPG or PNG",
     href: "/tools/pdf-to-images",
     gradient: "from-indigo-500 to-blue-500",
-    category: "Convert"
+    category: "Convert",
+    icon: Image
   },
   {
     name: "Images to PDF",
     description: "Convert images to PDF document",
     href: "/tools/images-to-pdf",
     gradient: "from-pink-500 to-rose-500",
-    category: "Convert"
+    category: "Convert",
+    icon: ImageIcon
   },
   {
     name: "Organize Pages",
     description: "Reorder, rotate, or delete PDF pages",
     href: "/tools/organize",
     gradient: "from-yellow-500 to-orange-500",
-    category: "Organize"
+    category: "Organize",
+    icon: Layers
   },
   {
     name: "Add Watermark",
     description: "Add text watermark to PDF pages",
     href: "/tools/watermark",
     gradient: "from-teal-500 to-cyan-500",
-    category: "Edit"
+    category: "Edit",
+    icon: Type
   },
   {
     name: "Encrypt PDF",
     description: "Add password protection and control permissions",
     href: "/tools/encrypt",
     gradient: "from-red-500 to-pink-500",
-    category: "Security"
+    category: "Security",
+    icon: Lock
   },
   {
     name: "Decrypt PDF",
     description: "Remove password protection from encrypted PDFs",
     href: "/tools/decrypt",
     gradient: "from-blue-500 to-indigo-500",
-    category: "Security"
+    category: "Security",
+    icon: Unlock
   },
   {
     name: "HTML to PDF",
     description: "Convert HTML files or code to PDF documents",
     href: "/tools/html-to-pdf",
     gradient: "from-violet-500 to-purple-500",
-    category: "Convert"
+    category: "Convert",
+    icon: Code
   },
 ];
 
@@ -101,7 +113,7 @@ export default function ToolsPage() {
               className="group relative flex flex-col bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm dark:shadow-slate-950/60 border border-slate-200 dark:border-slate-800 transition-all duration-200 hover:shadow-xl hover:-translate-y-1 active:scale-[0.98]"
             >
               <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${tool.gradient} mb-4 flex items-center justify-center text-white shadow-lg`}>
-                <span className="text-xl font-bold">{tool.name.charAt(0)}</span>
+                <tool.icon className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-2 group-hover:text-blue-600 transition-colors">
                 {tool.name}
