@@ -84,11 +84,11 @@ const categories = ["All", "Organize", "Edit", "Convert", "Optimize", "Security"
 
 export default function ToolsPage() {
   return (
-    <div className="min-h-screen bg-slate-50 pt-24 pb-16">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 pt-24 pb-16">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center mb-12">
-          <h1 className="text-4xl font-bold text-slate-900 mb-4">All PDF Tools</h1>
-          <p className="text-lg text-slate-600">
+          <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">All PDF Tools</h1>
+          <p className="text-lg text-slate-600 dark:text-slate-300">
           Compress, rotate, and optimize your PDFs with ease. All the tools you need, 100% in your browser. 
           </p>
         </div>
@@ -98,15 +98,15 @@ export default function ToolsPage() {
             <Link
               key={tool.name}
               href={tool.href}
-              className="group relative flex flex-col bg-white rounded-2xl p-6 shadow-sm border border-slate-200 transition-all duration-200 hover:shadow-xl hover:-translate-y-1 active:scale-[0.98]"
+              className="group relative flex flex-col bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm dark:shadow-slate-950/60 border border-slate-200 dark:border-slate-800 transition-all duration-200 hover:shadow-xl hover:-translate-y-1 active:scale-[0.98]"
             >
               <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${tool.gradient} mb-4 flex items-center justify-center text-white shadow-lg`}>
                 <span className="text-xl font-bold">{tool.name.charAt(0)}</span>
               </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+              <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-2 group-hover:text-blue-600 transition-colors">
                 {tool.name}
               </h3>
-              <p className="text-sm text-slate-600 mb-4 flex-grow">
+              <p className="text-sm text-slate-600 dark:text-slate-300 mb-4 flex-grow">
                 {tool.description}
               </p>
               <div className="flex items-center text-sm font-semibold text-blue-600">
@@ -116,7 +116,7 @@ export default function ToolsPage() {
                 </svg>
               </div>
               <div className="absolute top-6 right-6 flex flex-col items-end gap-2">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 bg-slate-100 px-2 py-1 rounded">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">
                   {tool.category}
                 </span>
               </div>
