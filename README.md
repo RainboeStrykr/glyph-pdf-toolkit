@@ -1,6 +1,6 @@
 # Glyph
 
-A fast, privacy-focused PDF toolkit that runs entirely in your browser. No file uploads, no servers — your documents never leave your device.
+Glyph is your all-in-one, browser-based solution for complete PDF management. Designed for simplicity and power, Glyph empowers you to effortlessly merge, split, compress, convert, organize, and secure your PDF documents, all within a private and intuitive environment. From transforming HTML into PDFs to adding watermarks, encrypting sensitive files, or decrypting protected documents, Glyph provides professional-grade tools without the need for downloads or complex installations. Experience unparalleled control over your documents, ensuring privacy and efficiency with every task.
 
 ![Next.js](https://img.shields.io/badge/Next.js-16-black)
 ![React](https://img.shields.io/badge/React-19-blue)
@@ -27,38 +27,6 @@ A fast, privacy-focused PDF toolkit that runs entirely in your browser. No file 
 | **Organize Pages** | Reorder, rotate, or delete individual pages |
 | **Add Watermark** | Add text watermark to PDF pages |
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js 18+
-- npm, yarn, pnpm, or bun
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/kanavtwt/pdf0.git
-cd glyph
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### Build for Production
-
-```bash
-# Build static export
-npm run build
-
-# The output will be in the 'out' folder
-```
-
 ## 🏗️ Tech Stack
 
 - **Framework:** [Next.js 16](https://nextjs.org/) with App Router
@@ -71,18 +39,18 @@ npm run build
 ```
 glyph/
 ├── app/
-│   ├── page.tsx          # Landing page
-│   ├── layout.tsx        # Root layout with Navbar & Footer
+│   ├── page.tsx          
+│   ├── layout.tsx        
 │   └── tools/
-│       ├── page.tsx      # Tools grid
-│       ├── merge/        # Merge PDF tool
-│       ├── split/        # Split PDF tool
-│       ├── compress/     # Compress PDF tool
-│       ├── rotate/       # Rotate PDF tool
+│       ├── page.tsx      
+│       ├── merge/        
+│       ├── split/        
+│       ├── compress/     
+│       ├── rotate/       
 │       ├── pdf-to-images/
 │       ├── images-to-pdf/
-│       ├── organize/     # Organize pages tool
-│       └── watermark/    # Add watermark tool
+│       ├── organize/    
+│       └── watermark/    
 ├── components/
 │   ├── Navbar.tsx
 │   ├── Footer.tsx
@@ -92,19 +60,6 @@ glyph/
     └── pdf-operations.ts # Core PDF manipulation functions
 ```
 
-## 🌐 Deployment
-
-Glyph is configured for static export and works great on:
-
-- [Cloudflare Pages](https://pages.cloudflare.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://netlify.com/)
-- Any static hosting
-
 ## 📄 License
 
 MIT License — feel free to use this project for personal or commercial purposes.
-
-## ☕ Support
-
-If you find this project useful, consider [buying me a coffee](https://buymeacoffee.com/kanavtwt)!
