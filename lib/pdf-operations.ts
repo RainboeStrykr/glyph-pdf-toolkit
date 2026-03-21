@@ -315,7 +315,8 @@ export async function htmlToPDF(
     // Use html2canvas to capture the HTML as an image
     // Scale 2 means 2x resolution, so canvas will be 2x the size
     const html2canvasScale = 2;
-    const canvas = await html2canvas(bodyElement, {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const canvas = await (html2canvas as any)(bodyElement, {
       scale: html2canvasScale, // Higher quality (2x resolution)
       useCORS: true,
       logging: false,
@@ -324,7 +325,7 @@ export async function htmlToPDF(
       windowWidth: pageWidthPx,
       windowHeight: bodyElement.scrollHeight || pageHeightPx,
       letterRendering: true, // Better text rendering
-      onclone: (clonedDoc) => {
+      onclone: (clonedDoc: Document) => {
         // Ensure fonts are loaded in cloned document
         const clonedBody = clonedDoc.body;
         if (clonedBody) {
