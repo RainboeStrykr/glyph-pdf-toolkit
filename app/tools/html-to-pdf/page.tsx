@@ -77,15 +77,15 @@ export default function HTMLToPDF() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-violet-50 to-purple-50 pt-24">
+    <div className="min-h-screen bg-gradient-to-br from-violet-50 to-purple-50 dark:bg-slate-950 dark:bg-none pt-24">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-slate-900 mb-2">HTML to PDF</h1>
-            <p className="text-slate-600">Convert HTML files or code to PDF documents</p>
+            <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">HTML to PDF</h1>
+            <p className="text-slate-600 dark:text-slate-300">Convert HTML files or code to PDF documents</p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-6">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl p-8 mb-6">
             {/* Input Method Toggle */}
             <div className="flex gap-4 mb-6">
               <button
@@ -96,7 +96,7 @@ export default function HTMLToPDF() {
                 className={`flex-1 px-4 py-2 rounded-lg font-semibold transition-all ${
                   inputMethod === "paste"
                     ? "bg-gradient-to-r from-violet-500 to-purple-500 text-white shadow-lg"
-                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                    : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
                 }`}
               >
                 Paste HTML Code
@@ -109,7 +109,7 @@ export default function HTMLToPDF() {
                 className={`flex-1 px-4 py-2 rounded-lg font-semibold transition-all ${
                   inputMethod === "file"
                     ? "bg-gradient-to-r from-violet-500 to-purple-500 text-white shadow-lg"
-                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                    : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
                 }`}
               >
                 Upload HTML File
@@ -119,14 +119,14 @@ export default function HTMLToPDF() {
             {/* HTML Input */}
             {inputMethod === "paste" ? (
               <div className="mb-6">
-                <label className="block text-sm font-semibold text-slate-900 mb-2">
+                <label className="block text-sm font-semibold text-slate-900 dark:text-slate-100 mb-2">
                   HTML Code
                 </label>
                 <textarea
                   value={htmlContent}
                   onChange={(e) => setHtmlContent(e.target.value)}
                   placeholder="Paste your HTML code here..."
-                  className="w-full h-64 px-4 py-3 border border-slate-300 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent resize-none"
+                  className="w-full h-64 px-4 py-3 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent resize-none"
                 />
               </div>
             ) : (
@@ -137,11 +137,11 @@ export default function HTMLToPDF() {
                   multiple={false}
                 />
                 {htmlFile && (
-                  <div className="mt-4 p-4 bg-slate-50 rounded-lg">
+                  <div className="mt-4 p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
                     <div className="flex items-center justify-between">
                       <div>
-                        <span className="text-sm font-medium text-slate-900">{htmlFile.name}</span>
-                        <span className="text-xs text-slate-500 ml-2">
+                        <span className="text-sm font-medium text-slate-900 dark:text-slate-100">{htmlFile.name}</span>
+                        <span className="text-xs text-slate-500 dark:text-slate-400 ml-2">
                           ({(htmlFile.size / 1024).toFixed(1)} KB)
                         </span>
                       </div>
@@ -161,11 +161,11 @@ export default function HTMLToPDF() {
             )}
 
             {/* Options */}
-            <div className="mb-6 p-4 bg-slate-50 rounded-lg">
-              <h3 className="text-sm font-semibold text-slate-900 mb-4">PDF Options</h3>
+            <div className="mb-6 p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
+              <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-4">PDF Options</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div>
-                  <label className="block text-xs font-medium text-slate-700 mb-2">
+                  <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-2">
                     Format
                   </label>
                   <select
@@ -173,14 +173,14 @@ export default function HTMLToPDF() {
                     onChange={(e) =>
                       setOptions({ ...options, format: e.target.value as "a4" | "letter" })
                     }
-                    className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500"
+                    className="w-full px-3 py-2 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500"
                   >
                     <option value="a4">A4</option>
                     <option value="letter">Letter</option>
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-slate-700 mb-2">
+                  <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-2">
                     Orientation
                   </label>
                   <select
@@ -191,14 +191,14 @@ export default function HTMLToPDF() {
                         orientation: e.target.value as "portrait" | "landscape",
                       })
                     }
-                    className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500"
+                    className="w-full px-3 py-2 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500"
                   >
                     <option value="portrait">Portrait</option>
                     <option value="landscape">Landscape</option>
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-slate-700 mb-2">
+                  <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-2">
                     Max Height Per Page ({options.format === "letter" ? "in" : "mm"})
                   </label>
                   <input
@@ -210,9 +210,9 @@ export default function HTMLToPDF() {
                       setOptions({ ...options, maxHeightPerPage: parseFloat(e.target.value) || 0 })
                     }
                     placeholder="Auto (full page)"
-                    className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500"
+                    className="w-full px-3 py-2 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500"
                   />
-                  <p className="text-xs text-slate-500 mt-1">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                     {options.maxHeightPerPage === 0
                       ? `Using full page height (~${options.format === "letter" ? "11in" : "297mm"})`
                       : `Max ${options.maxHeightPerPage}${options.format === "letter" ? "in" : "mm"} per page`}
@@ -233,7 +233,7 @@ export default function HTMLToPDF() {
               {(htmlContent || htmlFile) && (
                 <button
                   onClick={resetForm}
-                  className="px-6 py-3 bg-slate-100 text-slate-700 font-semibold rounded-xl hover:bg-slate-200 transition-all"
+                  className="px-6 py-3 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold rounded-xl hover:bg-slate-200 dark:hover:bg-slate-700 transition-all"
                 >
                   Reset
                 </button>
@@ -248,9 +248,9 @@ export default function HTMLToPDF() {
           </div>
 
           {/* Info Section */}
-          <div className="bg-white rounded-2xl shadow-xl p-8">
-            <h2 className="text-xl font-bold text-slate-900 mb-4">How it works</h2>
-            <ul className="space-y-3 text-slate-600">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl p-8">
+            <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-4">How it works</h2>
+            <ul className="space-y-3 text-slate-600 dark:text-slate-300">
               <li className="flex items-start gap-3">
                 <span className="text-violet-500 font-bold">1.</span>
                 <span>

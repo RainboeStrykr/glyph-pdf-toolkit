@@ -91,7 +91,7 @@ export default function EncryptPDF() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-50 via-pink-50 to-rose-50 pt-24">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-pink-50 to-rose-50 dark:bg-slate-950 dark:bg-none pt-24">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-3xl mx-auto">
           {/* Header */}
@@ -101,12 +101,12 @@ export default function EncryptPDF() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
             </div>
-            <h1 className="text-5xl font-black text-slate-900 mb-4">Encrypt PDF</h1>
-            <p className="text-xl text-slate-600">Secure your documents with password protection</p>
+            <h1 className="text-5xl font-black text-slate-900 dark:text-slate-100 mb-4">Encrypt PDF</h1>
+            <p className="text-xl text-slate-600 dark:text-slate-300">Secure your documents with password protection</p>
           </div>
 
           {/* Main Card */}
-          <div className="bg-white rounded-3xl shadow-2xl p-8 mb-6">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl p-8 mb-6">
             <FileUploader
               onFilesSelected={handleFileSelected}
               accept=".pdf"
@@ -124,8 +124,8 @@ export default function EncryptPDF() {
                       </svg>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-bold text-slate-900 truncate">{file.name}</p>
-                      <p className="text-xs text-slate-600">{(file.size / 1024).toFixed(1)} KB</p>
+                      <p className="text-sm font-bold text-slate-900 dark:text-slate-100 truncate">{file.name}</p>
+                      <p className="text-xs text-slate-600 dark:text-slate-300">{(file.size / 1024).toFixed(1)} KB</p>
                     </div>
                   </div>
                 </div>
@@ -133,7 +133,7 @@ export default function EncryptPDF() {
                 {/* Password Section */}
                 <div className="space-y-5">
                   <div>
-                    <label className="block text-sm font-bold text-slate-900 mb-3">
+                    <label className="block text-sm font-bold text-slate-900 dark:text-slate-100 mb-3">
                       Create Password <span className="text-red-500">*</span>
                     </label>
                     <div className="relative">
@@ -142,12 +142,12 @@ export default function EncryptPDF() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="Enter a strong password"
-                        className="w-full px-5 py-4 border-2 border-slate-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 text-slate-900 pr-12 font-medium transition-all"
+                        className="w-full px-5 py-4 border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 text-slate-900 dark:text-slate-100 pr-12 font-medium transition-all"
                       />
                       <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
                       >
                         {showPassword ? (
                           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -164,7 +164,7 @@ export default function EncryptPDF() {
                     {password && (
                       <div className="mt-3">
                         <div className="flex items-center gap-2 mb-1">
-                          <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
+                          <div className="flex-1 h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
                             <div 
                               className={`h-full transition-all duration-300 ${
                                 passwordStrength.strength === "weak" ? "bg-red-500 w-1/3" :
@@ -181,13 +181,13 @@ export default function EncryptPDF() {
                             {passwordStrength.strength.toUpperCase()}
                           </span>
                         </div>
-                        <p className="text-xs text-slate-500">Use 12+ characters with mixed case, numbers & symbols</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">Use 12+ characters with mixed case, numbers & symbols</p>
                       </div>
                     )}
                   </div>
 
                   <div>
-                    <label className="block text-sm font-bold text-slate-900 mb-3">
+                    <label className="block text-sm font-bold text-slate-900 dark:text-slate-100 mb-3">
                       Confirm Password <span className="text-red-500">*</span>
                     </label>
                     <div className="relative">
@@ -196,12 +196,12 @@ export default function EncryptPDF() {
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         placeholder="Re-enter your password"
-                        className="w-full px-5 py-4 border-2 border-slate-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 text-slate-900 pr-12 font-medium transition-all"
+                        className="w-full px-5 py-4 border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 text-slate-900 dark:text-slate-100 pr-12 font-medium transition-all"
                       />
                       <button
                         type="button"
                         onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
                       >
                         {showConfirmPassword ? (
                           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -296,32 +296,32 @@ export default function EncryptPDF() {
 
           {/* Features */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-            <div className="p-4 bg-white/60 backdrop-blur rounded-2xl">
+            <div className="p-4 bg-white/60 dark:bg-slate-900/70 backdrop-blur rounded-2xl border border-transparent dark:border-slate-800">
               <div className="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center mx-auto mb-2">
                 <svg className="w-5 h-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
               </div>
-              <h3 className="font-bold text-slate-900 text-sm mb-1">Strong Encryption</h3>
-              <p className="text-xs text-slate-600">Industry-standard RC4 128-bit encryption</p>
+              <h3 className="font-bold text-slate-900 dark:text-slate-100 text-sm mb-1">Strong Encryption</h3>
+              <p className="text-xs text-slate-600 dark:text-slate-300">Industry-standard RC4 128-bit encryption</p>
             </div>
-            <div className="p-4 bg-white/60 backdrop-blur rounded-2xl">
+            <div className="p-4 bg-white/60 dark:bg-slate-900/70 backdrop-blur rounded-2xl border border-transparent dark:border-slate-800">
               <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-2">
                 <svg className="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="font-bold text-slate-900 text-sm mb-1">Instant Processing</h3>
-              <p className="text-xs text-slate-600">Encrypt PDFs in seconds, no waiting</p>
+              <h3 className="font-bold text-slate-900 dark:text-slate-100 text-sm mb-1">Instant Processing</h3>
+              <p className="text-xs text-slate-600 dark:text-slate-300">Encrypt PDFs in seconds, no waiting</p>
             </div>
-            <div className="p-4 bg-white/60 backdrop-blur rounded-2xl">
+            <div className="p-4 bg-white/60 dark:bg-slate-900/70 backdrop-blur rounded-2xl border border-transparent dark:border-slate-800">
               <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-2">
                 <svg className="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="font-bold text-slate-900 text-sm mb-1">Zero Upload</h3>
-              <p className="text-xs text-slate-600">Everything happens in your browser</p>
+              <h3 className="font-bold text-slate-900 dark:text-slate-100 text-sm mb-1">Zero Upload</h3>
+              <p className="text-xs text-slate-600 dark:text-slate-300">Everything happens in your browser</p>
             </div>
           </div>
         </div>

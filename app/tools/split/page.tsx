@@ -190,17 +190,17 @@ export default function SplitPDF() {
   const selectedCount = pages.filter((p) => p.selected).length;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 pt-24">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 dark:bg-slate-950 dark:bg-none pt-24">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-slate-900 mb-2">Split PDF</h1>
-            <p className="text-slate-600">
+            <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">Split PDF</h1>
+            <p className="text-slate-600 dark:text-slate-300">
               Extract pages or split PDF into multiple files
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-6">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl p-8 mb-6">
             <FileUploader
               onFilesSelected={handleFileSelected}
               accept=".pdf"
@@ -209,11 +209,11 @@ export default function SplitPDF() {
 
             {file && pageCount > 0 && (
               <div className="mt-6">
-                <div className="mb-4 p-4 bg-purple-50 rounded-lg">
-                  <p className="text-sm text-slate-700 break-words">
+                <div className="mb-4 p-4 bg-purple-50 dark:bg-purple-950/30 rounded-lg">
+                  <p className="text-sm text-slate-700 dark:text-slate-300 break-words">
                     <span className="font-semibold">File:</span> {file.name}
                   </p>
-                  <p className="text-sm text-slate-700">
+                  <p className="text-sm text-slate-700 dark:text-slate-300">
                     <span className="font-semibold">Pages:</span> {pageCount}
                   </p>
                   {selectedCount > 0 && (
@@ -233,7 +233,7 @@ export default function SplitPDF() {
                     </button>
                     <button
                       onClick={deselectAll}
-                      className="px-4 py-2 text-sm bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors"
+                      className="px-4 py-2 text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
                     >
                       Deselect All
                     </button>
@@ -241,7 +241,7 @@ export default function SplitPDF() {
                 </div>
 
                 {loadingThumbnails && (
-                  <div className="mb-4 text-center text-sm text-slate-600">
+                  <div className="mb-4 text-center text-sm text-slate-600 dark:text-slate-300">
                     Loading page previews...
                   </div>
                 )}
@@ -259,7 +259,7 @@ export default function SplitPDF() {
                       className={`relative aspect-[3/4] border-2 rounded-xl overflow-hidden cursor-pointer transition-all shadow-sm ${
                         page.selected
                           ? "border-purple-500 bg-purple-50 ring-4 ring-purple-100 scale-[1.02]"
-                          : "border-slate-200 bg-slate-50 hover:border-purple-300 hover:shadow-md"
+                          : "border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:border-purple-300 dark:hover:border-purple-500 hover:shadow-md"
                       }`}
                     >
                       {page.imageUrl ? (
@@ -269,8 +269,8 @@ export default function SplitPDF() {
                           className="w-full h-full object-contain"
                   />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-slate-100">
-                          <span className="text-xs text-slate-400">Page {page.pageNum}</span>
+                        <div className="w-full h-full flex items-center justify-center bg-slate-100 dark:bg-slate-700">
+                          <span className="text-xs text-slate-400 dark:text-slate-300">Page {page.pageNum}</span>
                         </div>
                       )}
                       <div className="absolute top-1 right-1">
@@ -291,7 +291,7 @@ export default function SplitPDF() {
                             </svg>
                           </div>
                         ) : (
-                          <div className="w-5 h-5 border-2 border-slate-300 rounded-full bg-white" />
+                          <div className="w-5 h-5 border-2 border-slate-300 dark:border-slate-500 rounded-full bg-white dark:bg-slate-900" />
                         )}
                       </div>
                       <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white text-xs text-center py-0.5">

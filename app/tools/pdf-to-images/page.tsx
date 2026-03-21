@@ -73,15 +73,15 @@ export default function PDFToImages() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-50 pt-24">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-50 dark:bg-slate-950 dark:bg-none pt-24">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-slate-900 mb-2">PDF to Images</h1>
-            <p className="text-slate-600">Convert PDF pages to JPG or PNG images</p>
+            <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">PDF to Images</h1>
+            <p className="text-slate-600 dark:text-slate-300">Convert PDF pages to JPG or PNG images</p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-6">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl p-8 mb-6">
             <FileUploader
               onFilesSelected={handleFileSelected}
               accept=".pdf"
@@ -90,14 +90,14 @@ export default function PDFToImages() {
 
             {file && (
               <div className="mt-6">
-                <div className="mb-4 p-4 bg-indigo-50 rounded-lg">
-                  <p className="text-sm text-slate-700 break-words">
+                <div className="mb-4 p-4 bg-indigo-50 dark:bg-indigo-950/30 rounded-lg">
+                  <p className="text-sm text-slate-700 dark:text-slate-300 break-words">
                     <span className="font-semibold">File:</span> {file.name}
                   </p>
                 </div>
 
                 <div className="mb-6">
-                  <label className="block text-sm font-medium text-slate-700 mb-3">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">
                     Output Format
                   </label>
                   <div className="grid grid-cols-2 gap-4">
@@ -108,14 +108,14 @@ export default function PDFToImages() {
                         className={`p-4 rounded-xl border-2 transition-all ${
                           format === fmt
                             ? "border-indigo-500 bg-indigo-50 text-indigo-700"
-                            : "border-slate-200 bg-white text-slate-500 hover:border-slate-300 hover:text-slate-700"
+                            : "border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-500 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-600 hover:text-slate-700 dark:hover:text-slate-200"
                         }`}
                       >
                         <div className={`text-sm font-bold uppercase transition-colors ${
-                          format === fmt ? "text-indigo-900" : "text-slate-900"
+                          format === fmt ? "text-indigo-900 dark:text-indigo-200" : "text-slate-900 dark:text-slate-100"
                         }`}>{fmt}</div>
                         <div className={`text-xs mt-1 transition-colors ${
-                          format === fmt ? "text-indigo-600" : "text-slate-500"
+                          format === fmt ? "text-indigo-600 dark:text-indigo-300" : "text-slate-500 dark:text-slate-400"
                         }`}>
                           {fmt === "png" ? "Lossless quality" : "Smaller file size"}
                         </div>

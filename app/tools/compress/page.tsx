@@ -53,15 +53,15 @@ export default function CompressPDF() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50 pt-24">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50 dark:bg-slate-950 dark:bg-none pt-24">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-slate-900 mb-2">Compress PDF</h1>
-            <p className="text-slate-600">Reduce PDF file size while maintaining quality</p>
+            <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">Compress PDF</h1>
+            <p className="text-slate-600 dark:text-slate-300">Reduce PDF file size while maintaining quality</p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-6">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl p-8 mb-6">
             <FileUploader
               onFilesSelected={handleFileSelected}
               accept=".pdf"
@@ -70,11 +70,11 @@ export default function CompressPDF() {
 
             {file && (
               <div className="mt-6">
-                <div className="mb-4 p-4 bg-orange-50 rounded-lg">
-                  <p className="text-sm text-slate-700 break-words">
+                <div className="mb-4 p-4 bg-orange-50 dark:bg-orange-950/30 rounded-lg">
+                  <p className="text-sm text-slate-700 dark:text-slate-300 break-words">
                     <span className="font-semibold">File:</span> {file.name}
                   </p>
-                  <p className="text-sm text-slate-700">
+                  <p className="text-sm text-slate-700 dark:text-slate-300">
                     <span className="font-semibold">Original Size:</span>{" "}
                     {formatSize(originalSize)}
                   </p>

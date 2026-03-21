@@ -54,15 +54,15 @@ export default function WatermarkPDF() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-teal-50 to-cyan-50 pt-24">
+    <div className="min-h-screen bg-gradient-to-br from-teal-50 to-cyan-50 dark:bg-slate-950 dark:bg-none pt-24">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-slate-900 mb-2">Add Watermark</h1>
-            <p className="text-slate-600">Add text watermark to your PDF pages</p>
+            <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">Add Watermark</h1>
+            <p className="text-slate-600 dark:text-slate-300">Add text watermark to your PDF pages</p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-6">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl p-8 mb-6">
             <FileUploader
               onFilesSelected={handleFileSelected}
               accept=".pdf"
@@ -71,15 +71,15 @@ export default function WatermarkPDF() {
 
             {file && (
               <div className="mt-6">
-                <div className="mb-4 p-4 bg-teal-50 rounded-lg">
-                  <p className="text-sm text-slate-700 break-words">
+                <div className="mb-4 p-4 bg-teal-50 dark:bg-teal-950/30 rounded-lg">
+                  <p className="text-sm text-slate-700 dark:text-slate-300 break-words">
                     <span className="font-semibold">File:</span> {file.name}
                   </p>
                 </div>
 
                 <div className="space-y-4 mb-6">
                   <div>
-                    <label className="block text-sm font-bold text-slate-900 mb-2">
+                    <label className="block text-sm font-bold text-slate-900 dark:text-slate-100 mb-2">
                       Watermark Text
                     </label>
                     <input
@@ -87,12 +87,12 @@ export default function WatermarkPDF() {
                       value={watermarkText}
                       onChange={(e) => setWatermarkText(e.target.value)}
                       placeholder="Enter watermark text"
-                      className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-slate-900"
+                      className="w-full px-4 py-2 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-slate-900 dark:text-slate-100"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-bold text-slate-900 mb-2">
+                    <label className="block text-sm font-bold text-slate-900 dark:text-slate-100 mb-2">
                       Font Size: <span className="text-teal-600">{fontSize}px</span>
                     </label>
                     <input
@@ -106,7 +106,7 @@ export default function WatermarkPDF() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-bold text-slate-900 mb-2">
+                    <label className="block text-sm font-bold text-slate-900 dark:text-slate-100 mb-2">
                       Opacity: <span className="text-teal-600">{(opacity * 100).toFixed(0)}%</span>
                     </label>
                     <input
@@ -121,7 +121,7 @@ export default function WatermarkPDF() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-bold text-slate-900 mb-2">
+                    <label className="block text-sm font-bold text-slate-900 dark:text-slate-100 mb-2">
                       Rotation: <span className="text-teal-600">{rotation}°</span>
                     </label>
                     <input

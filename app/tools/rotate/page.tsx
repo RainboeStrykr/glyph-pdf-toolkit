@@ -42,21 +42,21 @@ export default function RotatePDF() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50 pt-24">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50 dark:bg-slate-950 dark:bg-none pt-24">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-slate-900 mb-2">Rotate PDF</h1>
-            <p className="text-slate-600">
+            <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">Rotate PDF</h1>
+            <p className="text-slate-600 dark:text-slate-300">
               All pages in your document will be rotated. For selective rotation, use the{" "}
-              <Link href="/tools/organize" className="text-green-600 hover:underline font-medium">
+              <Link href="/tools/organize" className="text-green-600 dark:text-green-400 hover:underline font-medium">
                 Organize Pages
               </Link>{" "}
               tool.
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-6">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl p-8 mb-6">
             <FileUploader
               onFilesSelected={handleFileSelected}
               accept=".pdf"
@@ -65,14 +65,14 @@ export default function RotatePDF() {
 
             {file && (
               <div className="mt-6">
-                <div className="mb-4 p-4 bg-green-50 rounded-lg">
-                  <p className="text-sm text-slate-700 break-words">
+                <div className="mb-4 p-4 bg-green-50 dark:bg-green-950/30 rounded-lg">
+                  <p className="text-sm text-slate-700 dark:text-slate-300 break-words">
                     <span className="font-semibold">File:</span> {file.name}
                   </p>
                 </div>
 
                 <div className="mb-6">
-                  <label className="block text-sm font-medium text-slate-700 mb-3">
+                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">
                     Rotation Angle
                   </label>
                   <div className="grid grid-cols-3 gap-4">
@@ -83,14 +83,14 @@ export default function RotatePDF() {
                         className={`p-4 rounded-xl border-2 transition-all group ${
                           rotation === angle
                             ? "border-green-500 bg-green-50 text-green-700"
-                            : "border-slate-200 bg-white text-slate-500 hover:border-slate-300 hover:text-slate-700"
+                            : "border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-500 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-600 hover:text-slate-700 dark:hover:text-slate-200"
                         }`}
                       >
                         <div className={`text-2xl mb-2 transition-transform duration-300 ${
                           rotation === angle ? "scale-110" : "group-hover:scale-110"
                         }`}>↻</div>
                         <div className={`text-base font-bold transition-colors ${
-                          rotation === angle ? "text-green-900" : "text-slate-900"
+                          rotation === angle ? "text-green-900 dark:text-green-200" : "text-slate-900 dark:text-slate-100"
                         }`}>{angle}°</div>
                       </button>
                     ))}

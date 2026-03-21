@@ -164,15 +164,15 @@ export default function OrganizePDF() {
   const activePages = pages.filter((p) => !p.deleted);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-orange-50 pt-24">
+    <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-orange-50 dark:bg-slate-950 dark:bg-none pt-24">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-slate-900 mb-2">Organize Pages</h1>
-            <p className="text-slate-600">Reorder, rotate, or delete PDF pages</p>
+            <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">Organize Pages</h1>
+            <p className="text-slate-600 dark:text-slate-300">Reorder, rotate, or delete PDF pages</p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-6">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl p-8 mb-6">
             <FileUploader
               onFilesSelected={handleFileSelected}
               accept=".pdf"
@@ -181,18 +181,18 @@ export default function OrganizePDF() {
 
             {file && pages.length > 0 && (
               <div className="mt-6">
-                <div className="mb-4 p-4 bg-yellow-50 rounded-lg">
-                  <p className="text-sm text-slate-700 break-words">
+                <div className="mb-4 p-4 bg-yellow-50 dark:bg-yellow-950/30 rounded-lg">
+                  <p className="text-sm text-slate-700 dark:text-slate-300 break-words">
                     <span className="font-semibold">File:</span> {file.name}
                   </p>
-                  <p className="text-sm text-slate-700">
+                  <p className="text-sm text-slate-700 dark:text-slate-300">
                     <span className="font-semibold">Pages:</span> {activePages.length} /{" "}
                     {pages.length}
                   </p>
                 </div>
 
                 {loadingThumbnails && (
-                  <div className="mb-4 text-center text-sm text-slate-600">
+                  <div className="mb-4 text-center text-sm text-slate-600 dark:text-slate-300">
                     Loading page previews...
                   </div>
                 )}
@@ -204,12 +204,12 @@ export default function OrganizePDF() {
                       className={`relative p-4 border-2 rounded-xl transition-all shadow-sm ${
                         page.deleted
                           ? "border-red-300 bg-red-50 opacity-50"
-                          : "border-slate-200 bg-white hover:border-yellow-300 hover:shadow-md"
+                          : "border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:border-yellow-300 dark:hover:border-yellow-500 hover:shadow-md"
                       }`}
                     >
                       <div className="text-center mb-3">
                         <div
-                          className="w-full aspect-[3/4] bg-slate-100 rounded-lg flex items-center justify-center mb-2 overflow-hidden border border-slate-100"
+                          className="w-full aspect-[3/4] bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center mb-2 overflow-hidden border border-slate-100 dark:border-slate-700"
                           style={{
                             transform: `rotate(${page.rotation}deg)`,
                             transition: "transform 0.3s",
@@ -222,12 +222,12 @@ export default function OrganizePDF() {
                               className="w-full h-full object-contain"
                             />
                           ) : (
-                          <span className="text-2xl font-bold text-slate-400">
+                          <span className="text-2xl font-bold text-slate-400 dark:text-slate-300">
                             {page.index + 1}
                           </span>
                           )}
                         </div>
-                        <span className={`text-sm font-bold ${page.deleted ? "text-red-700" : "text-slate-700"}`}>
+                        <span className={`text-sm font-bold ${page.deleted ? "text-red-700 dark:text-red-400" : "text-slate-700 dark:text-slate-200"}`}>
                           Page {page.index + 1}
                         </span>
                       </div>
@@ -237,7 +237,7 @@ export default function OrganizePDF() {
                           <button
                             onClick={() => movePage(page.index, "up")}
                             disabled={idx === 0 || page.deleted}
-                            className="flex-1 px-3 py-2 bg-slate-900 text-white rounded-lg hover:bg-slate-800 disabled:bg-slate-200 disabled:text-slate-400 transition-colors font-bold text-base"
+                            className="flex-1 px-3 py-2 bg-slate-900 text-white rounded-lg hover:bg-slate-800 disabled:bg-slate-200 dark:disabled:bg-slate-700 disabled:text-slate-400 transition-colors font-bold text-base"
                             title="Move Up"
                           >
                             ↑
@@ -245,7 +245,7 @@ export default function OrganizePDF() {
                           <button
                             onClick={() => movePage(page.index, "down")}
                             disabled={idx === pages.length - 1 || page.deleted}
-                            className="flex-1 px-3 py-2 bg-slate-900 text-white rounded-lg hover:bg-slate-800 disabled:bg-slate-200 disabled:text-slate-400 transition-colors font-bold text-base"
+                            className="flex-1 px-3 py-2 bg-slate-900 text-white rounded-lg hover:bg-slate-800 disabled:bg-slate-200 dark:disabled:bg-slate-700 disabled:text-slate-400 transition-colors font-bold text-base"
                             title="Move Down"
                           >
                             ↓
@@ -254,7 +254,7 @@ export default function OrganizePDF() {
                         <button
                           onClick={() => rotatePage(page.index)}
                           disabled={page.deleted}
-                          className="w-full px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-slate-200 disabled:text-slate-400 transition-colors font-bold text-sm"
+                          className="w-full px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-slate-200 dark:disabled:bg-slate-700 disabled:text-slate-400 transition-colors font-bold text-sm"
                         >
                           Rotate 90°
                         </button>
