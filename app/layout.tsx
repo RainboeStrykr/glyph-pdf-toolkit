@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LoadingOverlay from "@/components/LoadingOverlay";
 import { Suspense } from "react";
-import glyphLogo from "./glyph_logo_without_bg.png";
+import glyphLogo from "./glyph_logo_white.png";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

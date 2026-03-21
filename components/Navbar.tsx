@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import glyphLogo from "@/app/glyph_logo_without_bg.png";
+import glyphLogo from "@/app/glyph_logo_white.png";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
