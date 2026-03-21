@@ -1,6 +1,8 @@
 # Glyph
 
-Glyph is your all-in-one, browser-based solution for complete PDF management. Designed for simplicity and power, Glyph empowers you to effortlessly merge, split, compress, convert, organize, and secure your PDF documents, all within a private and intuitive environment. From transforming HTML into PDFs to adding watermarks, encrypting sensitive files, or decrypting protected documents, Glyph provides professional-grade tools without the need for downloads or complex installations. Experience unparalleled control over your documents, ensuring privacy and efficiency with every task.
+Glyph is your all-in-one, browser-based solution for complete PDF management. Designed for simplicity and power, Glyph empowers you to effortlessly merge, split, compress, convert, organise, and secure your PDF documents, all within a private and intuitive environment. From transforming HTML into PDFs to adding watermarks, encrypting sensitive files, or decrypting protected documents, Glyph provides professional-grade tools without the need for downloads or complex installations. Experience unparalleled control over your documents, ensuring privacy and efficiency with every task.
+
+![logo](app/glyph_logo_main.png)
 
 ![Next.js](https://img.shields.io/badge/Next.js-16-black)
 ![React](https://img.shields.io/badge/React-19-blue)
