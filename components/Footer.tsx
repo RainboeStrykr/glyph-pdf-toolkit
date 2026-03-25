@@ -34,7 +34,7 @@ export default function Footer() {
             <h4 className="font-bold text-slate-900 dark:text-slate-100 mb-6">Convert</h4>
             <ul className="space-y-4">
               <li><Link href="/tools/html-to-pdf" className="text-sm text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-colors">HTML to PDF</Link></li>
-              <li><Link href="/tools/images-to-pdf" className="text-sm text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-colors">PDF to Images</Link></li>
+              <li><Link href="/tools/images-to-pdf" className="text-sm text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-colors">Images to PDF</Link></li>
               <li><Link href="/tools/pdf-to-images" className="text-sm text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-colors">PDF to Image</Link></li>
             </ul>
           </div>
