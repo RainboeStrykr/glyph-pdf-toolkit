@@ -61,7 +61,3 @@ glyph/
 └── lib/
     └── pdf-operations.ts # Core PDF manipulation functions
 ```
-
-## 📄 License
-
-MIT License — feel free to use this project for personal or commercial purposes.
