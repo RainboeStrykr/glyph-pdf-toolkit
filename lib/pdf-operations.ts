@@ -53,22 +53,36 @@ export async function rotatePDF(
   return await pdf.save();
 }
 
-export async function compressPDF(file: File): Promise<Uint8Array> {
+export async function compressPDF(file: File, quality = 0.6): Promise<Uint8Array> {
+  const pdfjsLib = await import("pdfjs-dist");
+  pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`;
+
   const arrayBuffer = await file.arrayBuffer();
-  const pdf = await PDFDocument.load(arrayBuffer);
+  const pdfDoc = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+  const newPdf = await PDFDocument.create();
 
-  // Remove metadata to reduce size
-  pdf.setTitle("");
-  pdf.setAuthor("");
-  pdf.setSubject("");
-  pdf.setKeywords([]);
-  pdf.setProducer("");
-  pdf.setCreator("");
+  for (let pageNum = 1; pageNum <= pdfDoc.numPages; pageNum++) {
+    const page = await pdfDoc.getPage(pageNum);
+    // Scale 1.5 balances quality vs size; lower = smaller file
+    const viewport = page.getViewport({ scale: 1.5 });
 
-  return await pdf.save({
-    useObjectStreams: true,
-    addDefaultPage: false,
-  });
+    const canvas = document.createElement("canvas");
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+    const ctx = canvas.getContext("2d")!;
+
+    await page.render({ canvasContext: ctx, viewport }).promise;
+
+    // Re-encode as JPEG at the given quality — this is where the size reduction happens
+    const jpegDataUrl = canvas.toDataURL("image/jpeg", quality);
+    const jpegBytes = await fetch(jpegDataUrl).then((r) => r.arrayBuffer());
+    const image = await newPdf.embedJpg(jpegBytes);
+
+    const pdfPage = newPdf.addPage([viewport.width, viewport.height]);
+    pdfPage.drawImage(image, { x: 0, y: 0, width: viewport.width, height: viewport.height });
+  }
+
+  return await newPdf.save({ useObjectStreams: true });
 }
 
 export async function addWatermark(

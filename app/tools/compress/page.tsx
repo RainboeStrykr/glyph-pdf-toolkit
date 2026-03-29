@@ -11,6 +11,7 @@ export default function CompressPDF() {
   const [message, setMessage] = useState("");
   const [originalSize, setOriginalSize] = useState(0);
   const [compressedSize, setCompressedSize] = useState(0);
+  const [quality, setQuality] = useState(0.6); // 0.0 = max compression, 1.0 = best quality
 
   const handleFileSelected = (selectedFiles: File[]) => {
     const selectedFile = selectedFiles[0];
@@ -31,7 +32,7 @@ export default function CompressPDF() {
       setStatus("processing");
       setMessage("Compressing PDF...");
 
-      const compressedPdf = await compressPDF(file);
+      const compressedPdf = await compressPDF(file, quality);
       setCompressedSize(compressedPdf.length);
 
       downloadPDF(compressedPdf, `compressed-${file.name}`);
@@ -83,6 +84,25 @@ export default function CompressPDF() {
                       Compressed Size: {formatSize(compressedSize)}
                     </p>
                   )}
+                </div>
+
+                <div className="mb-4">
+                  <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
+                    Compression Level: {quality <= 0.3 ? "High" : quality <= 0.6 ? "Medium" : "Low"}
+                  </label>
+                  <input
+                    type="range"
+                    min={0.1}
+                    max={0.9}
+                    step={0.1}
+                    value={quality}
+                    onChange={(e) => setQuality(parseFloat(e.target.value))}
+                    className="w-full accent-orange-500"
+                  />
+                  <div className="flex justify-between text-xs text-slate-500 mt-1">
+                    <span>Smaller file</span>
+                    <span>Better quality</span>
+                  </div>
                 </div>
 
                 <button
